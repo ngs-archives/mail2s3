@@ -15,9 +15,9 @@ post '/incoming' do
   if mail.multipart?
     text = mail.text_part ? mail.text_part.body.to_s : nil
     html = mail.html_part ? mail.html_part.body.to_s : nil
-  elsif mail.content_type == 'text/plain'
+  elsif mail.content_type.downcase.include? 'text/plain'
     text = mail.body
-  elsif mail.content_type == 'text/html'
+  elsif mail.content_type.downcase.include? 'text/html'
     html = mail.body
   end
 
