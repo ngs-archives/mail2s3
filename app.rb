@@ -26,10 +26,5 @@ post '/incoming' do
   AWS::S3::S3Object.store("#{dir}/#{filename}.html", html, settings.bucket_name) if html && !html.blank?
   AWS::S3::S3Object.store("#{dir}/#{filename}.txt",  text, settings.bucket_name) if text && !text.blank?
 
-  p mail.body
-  p mail.content_type
-  p text
-  p html
-
   'success'
 end
