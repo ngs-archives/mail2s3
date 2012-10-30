@@ -1,0 +1,13 @@
+# mail2s3
+
+Simple Heroku webapp for uploading .txt/.html file to Amazon S3 from emails using [Cloudmailn](http://www.cloudmailin.com).
+
+    $ heroku create $PROJECT_NAME
+    $ git clone git://github.com/ngs/mail2s3.git $PROJECT_NAME
+    $ cd $PROJECT_NAME
+    $ git remote add heroku git@heroku.com/$PROJECT_NAME.git
+    $ git config:set \
+        AMAZON_ACCESS_KEY_ID=$AMAZON_ACCESS_KEY_ID \
+        AMAZON_SECRET_ACCESS_KEY=$AMAZON_SECRET_ACCESS_KEY \
+        MAIL2S3_BUCKET_NAME=$MAIL2S3_BUCKET_NAME
+    $ git push heroku master
