@@ -1,6 +1,6 @@
 post '/incoming' do
   mail = Mail.new(params[:message])
-  filename = "#{ Time.now.strftime('%Y-%m/%d/%H-%M') } #{ mail.subject }"
+  filename = "#{ mail.message_id } #{ mail.subject }"
   p filename
   'success'
 
