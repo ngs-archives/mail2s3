@@ -15,11 +15,8 @@ post '/incoming' do
   text = mail.text_part
   html = mail.html_part
 
-  S3Object.store("#{dir}/#{filename}.html", html, settings.bucket_name) if html && !html.blank?
-  S3Object.store("#{dir}/#{filename}.txt",  text, settings.bucket_name) if text && !text.blank?
+  AWS::S3::S3Object.store("#{dir}/#{filename}.html", html, settings.bucket_name) if html && !html.blank?
+  AWS::S3::S3Object.store("#{dir}/#{filename}.txt",  text, settings.bucket_name) if text && !text.blank?
 
-  p html
-  p text
-  p filename
   'success'
 end
